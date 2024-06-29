@@ -22,25 +22,27 @@ public class SpringSecurityConfig {
 	@Bean
 	UserDetailsService userDetailsService() {
 
-		UserDetails irix = org.springframework.security.core.userdetails.User.builder()
-				.username("")
-				.password(passwordEncoder().encode(""))
-				.roles("")
+		
+
+		UserDetails userAdmin = org.springframework.security.core.userdetails.User.builder()
+				.username("admin")
+				.password(passwordEncoder().encode("admin"))
+				.roles("admin")
 				.build();
 
-		UserDetails bankMfiuser = org.springframework.security.core.userdetails.User.builder()
-				.username("")
-				.password(passwordEncoder().encode(""))
-				.roles("")
+		UserDetails user = org.springframework.security.core.userdetails.User.builder()
+				.username("user")
+				.password(passwordEncoder().encode("user"))
+				.roles("user")
 				.build();
 
-		UserDetails businesscorrespondent = org.springframework.security.core.userdetails.User.builder()
-				.username("")
-				.password(passwordEncoder().encode(""))
-				.roles("")
+		UserDetails userBusiness = org.springframework.security.core.userdetails.User.builder()
+				.username("userBusiness")
+				.password(passwordEncoder().encode("userBusiness"))
+				.roles("userBusiness")
 				.build();
 
-		return new InMemoryUserDetailsManager(irix, bankMfiuser, businesscorrespondent);
+		return new InMemoryUserDetailsManager(userAdmin, user, userBusiness);
 	}
 
 	@Bean
